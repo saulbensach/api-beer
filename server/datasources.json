@@ -1,0 +1,12 @@
+{
+  "beer-mongo": {
+    "host": "46.183.116.116",
+    "port": 27017,
+    "url": "",
+    "database": "beers",
+    "password": "",
+    "name": "beer-mongo",
+    "user": "",
+    "connector": "mongodb"
+  }
+}
