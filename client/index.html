@@ -2,9 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <style>
+    table, th, td{
+      border:1px solid black;
+    }
+  </style>
+  <script>
+    $(document).ready(function () {
+      $("button").click(function(){
+        $('#div1').html("");
+        var ul = $('<ul>');
+        var table = $('<table style="width: auto;">');
+        table.append('<tr><th>name</th><th>description</th><th>precio</th></tr>');
+        $.getJSON({url: "/api/beers", success: function(data){
+          for(var i = 0; i < data.length; i++){
+            var tr = $('<tr>');
+            var td = $('<th>'+data[i].name+'</th><th>'+data[i].description+'</th><th>'+data[i].price+'</th>');
+            tr.append(td);
+            table.append(tr);
+          }
+          $("#div1").append(table);
+        }});
+      });
+    });
+  </script>
 </head>
 <body>
-$END$
+<div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
+<button>Get External Content</button>
 </body>
 </html>
